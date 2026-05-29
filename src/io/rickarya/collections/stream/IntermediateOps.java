@@ -2,6 +2,7 @@ package io.rickarya.collections.stream;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class IntermediateOps {
@@ -46,7 +47,7 @@ public class IntermediateOps {
                 Arrays.asList("pear", "grape")
         );
         System.out.println(listOfLists.get(1).get(1));
-        System.out.println(listOfLists.stream().flatMap(x -> x.stream()).map(String::toUpperCase).toList());
+        System.out.println(listOfLists.stream().flatMap(x -> x.stream()).map(String::toUpperCase).collect(Collectors.toList()));
         List<String> sentences = Arrays.asList(
                 "Hello world",
                 "Java streams are powerful",
@@ -56,7 +57,7 @@ public class IntermediateOps {
                 .stream()
                 .flatMap(sentence -> Arrays.stream(sentence.split(" ")))
                 .map(String::toUpperCase)
-                .toList());
+                .collect(Collectors.toList()));
 
 
     }

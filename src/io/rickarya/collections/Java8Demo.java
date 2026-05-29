@@ -1,6 +1,7 @@
 package io.rickarya.collections;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Java8Demo {
     public static void main(String[] args) {
@@ -10,7 +11,7 @@ public class Java8Demo {
         List<Integer> squared = numbers.stream()
             .filter(n -> n % 2 == 0)
             .map(n -> n * n)
-            .toList();
+            .collect(Collectors.toList());
         
         System.out.println("Squared even numbers: " + squared);
         

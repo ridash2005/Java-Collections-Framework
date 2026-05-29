@@ -23,10 +23,10 @@ public class PrimitiveStreams {
 //        System.out.println(doubles.average());
 //        doubles.summaryStatistics()
 //        doubles.mapToInt(x -> (int) (x + 1));
-        System.out.println(doubles.boxed().toList());
+        System.out.println(doubles.boxed().collect(Collectors.toList()));
 
         IntStream intStream = new Random().ints(5);
-        System.out.println(intStream.boxed().toList());
+        System.out.println(intStream.boxed().collect(Collectors.toList()));
     }
 }
 

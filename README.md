@@ -100,8 +100,8 @@ src/io/rickarya/collections/
 
 Compile the project:
 ```bash
-javac -d out src/io/rickarya/collections/*.java
-javac -d out src/io/rickarya/collections/stream/*.java
+mkdir -p out
+javac -d out -encoding UTF-8 src/io/rickarya/collections/*.java src/io/rickarya/collections/stream/*.java
 ```
 
 Run specific demonstrations:
@@ -188,8 +188,8 @@ This is an educational project designed to demonstrate Java collections and stre
 
 - [Java Collections Official Documentation](https://docs.oracle.com/javase/tutorial/collections/)
 - [Java Streams API](https://docs.oracle.com/javase/tutorial/collections/streams/)
-- [Effective Java by Joshua Bloch](https://www.oreilly.com/library/view/effective-java-3rd/9780134685991/)
-- [Java Concurrency in Practice](https://www.oreilly.com/library/view/java-concurrency-in/9780321349606/)
+- [Effective Java, 3rd Edition by Joshua Bloch](https://www.pearson.com/en-us/subject-catalog/p/effective-java/P200000003050/9780134685991)
+- [Java Concurrency in Practice](https://jcip.net)
 
 ## Author
 

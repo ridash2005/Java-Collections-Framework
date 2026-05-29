@@ -14,7 +14,7 @@ public class TerminalOps {
 
         // 1. collect
         list.stream().skip(1).collect(Collectors.toList());
-        list.stream().skip(1).toList();
+        list.stream().skip(1).collect(Collectors.toList());
 
         // 2. forEach
         list.stream().forEach(x -> System.out.println(x));
@@ -57,11 +57,11 @@ public class TerminalOps {
 
         // Example: Filtering and Collecting Names
         List<String> names = Arrays.asList("Anna", "Bob", "Charlie", "David");
-        System.out.println(names.stream().filter(x -> x.length() > 3).toList());
+        System.out.println(names.stream().filter(x -> x.length() > 3).collect(Collectors.toList()));
 
         // Example: Squaring and Sorting Numbers
         List<Integer> numbers = Arrays.asList(5, 2, 9, 1, 6);
-        System.out.println(numbers.stream().map(x -> x * x).sorted().toList());
+        System.out.println(numbers.stream().map(x -> x * x).sorted().collect(Collectors.toList()));
 
         // Example: Summing Values
         List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5);
