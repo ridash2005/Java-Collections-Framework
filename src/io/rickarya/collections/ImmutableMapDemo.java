@@ -18,8 +18,11 @@ public class ImmutableMapDemo {
             System.out.println("Cannot modify unmodifiable map");
         }
         
-        // Java 9+: Using Map.of()
-        Map<String, Integer> immutable = Map.of("X", 10, "Y", 20);
-        System.out.println("Immutable Map (Java 9+): " + immutable);
+        // Java 8 compatible: create an immutable-style map
+        Map<String, Integer> temp = new HashMap<>();
+        temp.put("X", 10);
+        temp.put("Y", 20);
+        Map<String, Integer> immutable = Collections.unmodifiableMap(temp);
+        System.out.println("Immutable Map: " + immutable);
     }
 }
