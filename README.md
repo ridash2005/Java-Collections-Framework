@@ -1,6 +1,6 @@
 # Java Collection Framework
 
-A comprehensive educational project demonstrating and exploring Java's Collection Framework with practical examples and implementations.
+A project exploring Java's Collection Framework with practical examples and implementations.
 
 ## Overview
 
