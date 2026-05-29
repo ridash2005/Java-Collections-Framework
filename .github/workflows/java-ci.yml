@@ -1,0 +1,51 @@
+name: Java CI/CD
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java-version: ['8', '11', '17', '21']
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up JDK ${{ matrix.java-version }}
+      uses: actions/setup-java@v3
+      with:
+        java-version: ${{ matrix.java-version }}
+        distribution: 'temurin'
+    
+    - name: Compile Java files
+      run: javac -d out -encoding UTF-8 src/io/rickarya/collections/*.java src/io/rickarya/collections/stream/*.java
+    
+    - name: Run Main demo
+      run: java -cp out io.rickarya.collections.Main
+      continue-on-error: true
+    
+    - name: Run HashMapDemo
+      run: java -cp out io.rickarya.collections.HashMapDemo
+      continue-on-error: true
+    
+    - name: Run SetOverview
+      run: java -cp out io.rickarya.collections.SetOverview
+      continue-on-error: true
+    
+    - name: Create build artifact
+      run: |
+        mkdir -p build
+        cp -r out build/
+      if: success()
+    
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: java-build-jdk${{ matrix.java-version }}
+        path: build/
+      if: success()
